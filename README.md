@@ -38,7 +38,7 @@ The script generates a `manifest.xml` in a `CSXS` folder, based on the `cep` set
 
 It expects that you have a `cep` object in your `package.json` with the following structure:
 
-```json
+```jsonc
 "cep": {
     "version": "6.0",
     "bundle": {
