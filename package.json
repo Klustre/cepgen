@@ -1,0 +1,118 @@
+{
+	"name": "cepgen",
+	"version": "0.0.1",
+	"description": "Generate a CEP manifest and debug file",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"bin": {
+		"cepgen": "index.js"
+	},
+	"keywords": [
+		"cep",
+		"manifest",
+		"adobe",
+		"script"
+	],
+	"author": "Remco Janssen",
+	"license": "MIT",
+	"dependencies": {
+		"fs-extra": "^9.0.1",
+		"jsonschema": "^1.4.0",
+		"minimist": "^1.2.5",
+		"xml-formatter": "^2.4.0"
+	},
+	"cep": {
+		"version": "6.0",
+		"bundle": {
+			"name": "My Bundle",
+			"id": "com.mycompany",
+			"version": "1.0.0"
+		},
+		"hosts": {
+			"AEFT": "16.0",
+			"PPRO": "1.0",
+			"PHXS": "1.0",
+			"PHSP": "0.0"
+		},
+		"extensions": [
+			{
+				"menu": "My Panel",
+				"type": "ModalDialog",
+				"version": "1.0.0",
+				"main": "./index.html",
+				"script": "./script.jsx",
+				"id": "com.mycompany.panel",
+				"debug": {
+					"AEFT": 3001,
+					"PPRO": 3001,
+					"PHXS": 3001,
+					"PHSP": 3001
+				},
+				"geometry": {
+					"size": {
+						"width": 20,
+						"height": 20
+					},
+					"min": {
+						"width": 800,
+						"height": 500
+					},
+					"maxsize": {
+						"width": 800,
+						"height": 500
+					}
+				},
+				"icons": {
+					"Normal": "./icons/icon.png",
+					"Rollover": "./icons/icon.png",
+					"Disabled": "./icons/icon.png",
+					"DarkrollOver": "./icons/icon.png"
+				},
+				"events": [
+					"com.lifecycle.event"
+				],
+				"params": [
+					"--allow-file-access-from-files",
+					"--allow-file-access",
+					"--enable-nodejs",
+					"--mixed-context"
+				]
+			},
+			{
+				"type": "Custom",
+				"version": "1.0.0",
+				"main": "./index.html",
+				"id": "com.mycompany.custom",
+				"debug": {
+					"AEFT": 3001,
+					"PPRO": 3001,
+					"PHXS": 3001,
+					"PHSP": 3001
+				},
+				"geometry": {
+					"size": {
+						"width": 800,
+						"height": 500
+					}
+				},
+				"icons": {
+					"Normal": "./icons/icon.png",
+					"Rollover": "./icons/icon.png",
+					"darknormal": "./icons/icon.png",
+					"DarkrollOver": "./icons/icon.png"
+				},
+				"events": [
+					"com.lifecycle.event"
+				],
+				"params": [
+					"--allow-file-access-from-files",
+					"--allow-file-access",
+					"--enable-nodejs",
+					"--mixed-context"
+				]
+			}
+		]
+	}
+}

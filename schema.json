@@ -1,0 +1,800 @@
+{
+    "definitions": {},
+    "type": "object",
+    "required": [
+        "cep"
+    ],
+    "properties": {
+        "cep": {
+            "$id": "#root/cep",
+            "title": "CEP",
+            "type": "object",
+            "required": [
+                "version",
+                "bundle",
+                "hosts",
+                "extensions"
+            ],
+            "properties": {
+                "version": {
+                    "$id": "#root/cep/version",
+                    "title": "Version",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "6.0"
+                    ],
+                    "pattern": "^.*$"
+                },
+                "bundle": {
+                    "$id": "#root/cep/bundle",
+                    "title": "Bundle",
+                    "type": "object",
+                    "required": [
+                        "name",
+                        "id",
+                        "version"
+                    ],
+                    "properties": {
+                        "name": {
+                            "$id": "#root/cep/bundle/name",
+                            "title": "Name",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "Awesome Bundle"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "id": {
+                            "$id": "#root/cep/bundle/id",
+                            "title": "Id",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "com.mycompany"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "version": {
+                            "$id": "#root/cep/bundle/version",
+                            "title": "Version",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "1.0.0"
+                            ],
+                            "pattern": "^.*$"
+                        }
+                    }
+                },
+                "hosts": {
+                    "$id": "#root/cep/hosts",
+                    "title": "Hosts",
+                    "type": "object",
+                    "required": [],
+                    "minProperties": 1,
+                    "additionalProperties": false,
+                    "properties": {
+                        "PHSP": {
+                            "$id": "#root/cep/hosts/PHSP",
+                            "title": "PHSP",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "PHXS": {
+                            "$id": "#root/cep/hosts/PHXS",
+                            "title": "PHXS",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "IDSN": {
+                            "$id": "#root/cep/hosts/IDSN",
+                            "title": "IDSN",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "AICY": {
+                            "$id": "#root/cep/hosts/AICY",
+                            "title": "AICY",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "ILST": {
+                            "$id": "#root/cep/hosts/ILST",
+                            "title": "ILST",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "PPRO": {
+                            "$id": "#root/cep/hosts/PPRO",
+                            "title": "PPRO",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "PRLD": {
+                            "$id": "#root/cep/hosts/PRLD",
+                            "title": "PRLD",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "AEFT": {
+                            "$id": "#root/cep/hosts/AEFT",
+                            "title": "AEFT",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "FLPR": {
+                            "$id": "#root/cep/hosts/FLPR",
+                            "title": "FLPR",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "AUDT": {
+                            "$id": "#root/cep/hosts/AUDT",
+                            "title": "AUDT",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "DRWV": {
+                            "$id": "#root/cep/hosts/DRWV",
+                            "title": "DRWV",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "MUSE": {
+                            "$id": "#root/cep/hosts/MUSE",
+                            "title": "MUSE",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "KBRG": {
+                            "$id": "#root/cep/hosts/KBRG",
+                            "title": "KBRG",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        },
+                        "RUSH": {
+                            "$id": "#root/cep/hosts/RUSH",
+                            "title": "RUSH",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "15.0",
+                                "[15.0,15.9]",
+                                "[15.0,15.9)"
+                            ],
+                            "pattern": "^.*$"
+                        }
+                    }
+                },
+                "extensions": {
+                    "$id": "#root/cep/extensions",
+                    "title": "Extensions",
+                    "type": "array",
+                    "default": [],
+                    "minProperties": 1,
+                    "items": {
+                        "$id": "#root/cep/extensions/items",
+                        "title": "Items",
+                        "type": "object",
+                        "required": [
+                            "type",
+                            "version",
+                            "main",
+                            "id",
+                            "geometry"
+                        ],
+                        "anyOf": [
+                            {
+                              "properties": {
+                                "type": { 
+                                    "const": "Panel" 
+                                }
+                              },
+                              "required": ["menu"]
+                            },
+                            {
+                              "properties": {
+                                "type": { 
+                                    "const": "ModalDialog"
+                                }
+                              },
+                              "required": ["menu"]
+                            },
+                            {
+                              "properties": {
+                                "type": {
+                                    "const": "Custom"
+                                }
+                              },
+                              "required": []
+                            }
+                        ],
+                        "properties": {
+                            "menu": {
+                                "$id": "#root/cep/extensions/items/menu",
+                                "title": "Menu",
+                                "type": "string",
+                                "default": "",
+                                "examples": [
+                                    "Awesomesauce"
+                                ],
+                                "pattern": "^.*$"
+                            },
+                            "type": {
+                                "$id": "#root/cep/extensions/items/type",
+                                "title": "Type",
+                                "type": "string",
+                                "default": "",
+                                "examples": [
+                                    "Panel"
+                                ],
+                                "enum": [
+                                    "Panel",
+                                    "ModalDialog",
+                                    "Custom",
+                                    "Modeless",
+                                    "Embedded",
+                                    "Dashboard"
+                                ],
+                                "pattern": "^.*$"
+                            },
+                            "version": {
+                                "$id": "#root/cep/extensions/items/version",
+                                "title": "Version",
+                                "type": "string",
+                                "default": "",
+                                "examples": [
+                                    "1.0.0"
+                                ],
+                                "pattern": "^.*$"
+                            },
+                            "main": {
+                                "$id": "#root/cep/extensions/items/main",
+                                "title": "MainPath",
+                                "type": "string",
+                                "default": "",
+                                "examples": [
+                                    "./index.html"
+                                ],
+                                "pattern": "^.*$"
+                            },
+                            "script": {
+                                "$id": "#root/cep/extensions/items/script",
+                                "title": "ScriptPath",
+                                "type": "string",
+                                "default": "",
+                                "examples": [
+                                    "./script.jsx"
+                                ],
+                                "pattern": "^.*$"
+                            },
+                            "id": {
+                                "$id": "#root/cep/extensions/items/id",
+                                "title": "Id",
+                                "type": "string",
+                                "default": "",
+                                "examples": [
+                                    "com.mycompany.panel"
+                                ],
+                                "pattern": "^.*$"
+                            },
+                            "debug": {
+                                "$id": "#root/cep/extensions/items/debug",
+                                "title": "Debug",
+                                "type": "object",
+                                "required": [],
+                                "minProperties": 1,
+                                "additionalProperties": false,
+                                "properties": {
+                                    "PHSP": {
+                                        "$id": "#root/cep/extensions/items/debug/PHSP",
+                                        "title": "PHSP",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "PHXS": {
+                                        "$id": "#root/cep/extensions/items/debug/PHXS",
+                                        "title": "PHXS",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "IDSN": {
+                                        "$id": "#root/cep/extensions/items/debug/IDSN",
+                                        "title": "IDSN",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "AICY": {
+                                        "$id": "#root/cep/extensions/items/debug/AICY",
+                                        "title": "AICY",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "ILST": {
+                                        "$id": "#root/cep/extensions/items/debug/ILST",
+                                        "title": "ILST",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "PPRO": {
+                                        "$id": "#root/cep/extensions/items/debug/PPRO",
+                                        "title": "PPRO",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "PRLD": {
+                                        "$id": "#root/cep/extensions/items/debug/PRLD",
+                                        "title": "PRLD",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "AEFT": {
+                                        "$id": "#root/cep/extensions/items/debug/AEFT",
+                                        "title": "AEFT",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "FLPR": {
+                                        "$id": "#root/cep/extensions/items/debug/FLPR",
+                                        "title": "FLPR",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "AUDT": {
+                                        "$id": "#root/cep/extensions/items/debug/AUDT",
+                                        "title": "AUDT",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "DRWV": {
+                                        "$id": "#root/cep/extensions/items/debug/DRWV",
+                                        "title": "DRWV",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "MUSE": {
+                                        "$id": "#root/cep/extensions/items/debug/MUSE",
+                                        "title": "MUSE",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "KBRG": {
+                                        "$id": "#root/cep/extensions/items/debug/KBRG",
+                                        "title": "KBRG",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "RUSH": {
+                                        "$id": "#root/cep/extensions/items/debug/RUSH",
+                                        "title": "RUSH",
+                                        "type": "integer",
+                                        "default": "",
+                                        "minimum": 1024,
+                                        "exclusiveMaximum": 65535,
+                                        "examples": [
+                                            3001
+                                        ],
+                                        "pattern": "^.*$"
+                                    }
+                                }
+                            },
+                            "geometry": {
+                                "$id": "#root/cep/extensions/items/geometry",
+                                "title": "Geometry",
+                                "type": "object",
+                                "required": [
+                                    "size"
+                                ],
+                                "properties": {
+                                    "size": {
+                                        "$id": "#root/cep/extensions/items/geometry/size",
+                                        "title": "Size",
+                                        "type": "object",
+                                        "required": [
+                                            "width",
+                                            "height"
+                                        ],
+                                        "properties": {
+                                            "width": {
+                                                "$id": "#root/cep/extensions/items/geometry/size/width",
+                                                "title": "Width",
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "examples": [
+                                                    800
+                                                ],
+                                                "default": 0
+                                            },
+                                            "height": {
+                                                "$id": "#root/cep/extensions/items/geometry/size/height",
+                                                "title": "Height",
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "examples": [
+                                                    500
+                                                ],
+                                                "default": 0
+                                            }
+                                        }
+                                    },
+                                    "min": {
+                                        "$id": "#root/cep/extensions/items/geometry/min",
+                                        "title": "MinSize",
+                                        "type": "object",
+                                        "required": [
+                                            "width",
+                                            "height"
+                                        ],
+                                        "properties": {
+                                            "width": {
+                                                "$id": "#root/cep/extensions/items/geometry/min/width",
+                                                "title": "Width",
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "examples": [
+                                                    800
+                                                ],
+                                                "default": 0
+                                            },
+                                            "height": {
+                                                "$id": "#root/cep/extensions/items/geometry/min/height",
+                                                "title": "Height",
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "examples": [
+                                                    500
+                                                ],
+                                                "default": 0
+                                            }
+                                        }
+                                    },
+                                    "MinSize": {
+                                        "$id": "#root/cep/extensions/items/geometry/minsize",
+                                        "title": "MinSize",
+                                        "type": "object",
+                                        "required": [
+                                            "width",
+                                            "height"
+                                        ],
+                                        "properties": {
+                                            "width": {
+                                                "$id": "#root/cep/extensions/items/geometry/minsize/width",
+                                                "title": "Width",
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "examples": [
+                                                    800
+                                                ],
+                                                "default": 0
+                                            },
+                                            "height": {
+                                                "$id": "#root/cep/extensions/items/geometry/minsize/height",
+                                                "title": "Height",
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "examples": [
+                                                    500
+                                                ],
+                                                "default": 0
+                                            }
+                                        }
+                                    },
+                                    "max": {
+                                        "$id": "#root/cep/extensions/items/geometry/max",
+                                        "title": "MaxSize",
+                                        "type": "object",
+                                        "required": [
+                                            "width",
+                                            "height"
+                                        ],
+                                        "properties": {
+                                            "width": {
+                                                "$id": "#root/cep/extensions/items/geometry/max/width",
+                                                "title": "Width",
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "examples": [
+                                                    800
+                                                ],
+                                                "default": 0
+                                            },
+                                            "height": {
+                                                "$id": "#root/cep/extensions/items/geometry/max/height",
+                                                "title": "Height",
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "examples": [
+                                                    500
+                                                ],
+                                                "default": 0
+                                            }
+                                        }
+                                    },
+                                    "MaxSize": {
+                                        "$id": "#root/cep/extensions/items/geometry/MaxSize",
+                                        "title": "MaxSize",
+                                        "type": "object",
+                                        "required": [
+                                            "width",
+                                            "height"
+                                        ],
+                                        "properties": {
+                                            "width": {
+                                                "$id": "#root/cep/extensions/items/geometry/MaxSize/width",
+                                                "title": "Width",
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "examples": [
+                                                    800
+                                                ],
+                                                "default": 0
+                                            },
+                                            "height": {
+                                                "$id": "#root/cep/extensions/items/geometry/MaxSize/height",
+                                                "title": "Height",
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "examples": [
+                                                    500
+                                                ],
+                                                "default": 0
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "icons": {
+                                "$id": "#root/cep/extensions/items/icons",
+                                "title": "Icons",
+                                "type": "object",
+                                "required": [],
+                                "properties": {
+                                    "Normal": {
+                                        "$id": "#root/cep/extensions/items/icons/Normal",
+                                        "title": "Normal",
+                                        "type": "string",
+                                        "default": "",
+                                        "examples": [
+                                            "./icons/icon.png"
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "Disabled": {
+                                        "$id": "#root/cep/extensions/items/icons/Disabled",
+                                        "title": "Disabled",
+                                        "type": "string",
+                                        "default": "",
+                                        "examples": [
+                                            "./icons/icon.png"
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "RollOver": {
+                                        "$id": "#root/cep/extensions/items/icons/Rollover",
+                                        "title": "Rollover",
+                                        "type": "string",
+                                        "default": "",
+                                        "examples": [
+                                            "./icons/icon.png"
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "DarkNormal": {
+                                        "$id": "#root/cep/extensions/items/icons/darknormal",
+                                        "title": "Darknormal",
+                                        "type": "string",
+                                        "default": "",
+                                        "examples": [
+                                            "./icons/icon.png"
+                                        ],
+                                        "pattern": "^.*$"
+                                    },
+                                    "DarkRollOver": {
+                                        "$id": "#root/cep/extensions/items/icons/DarkrollOver",
+                                        "title": "Darkrollover",
+                                        "type": "string",
+                                        "default": "",
+                                        "examples": [
+                                            "./icons/icon.png"
+                                        ],
+                                        "pattern": "^.*$"
+                                    }
+                                }
+                            },
+                            "events": {
+                                "$id": "#root/cep/extensions/items/events",
+                                "title": "Events",
+                                "type": "array",
+                                "default": [],
+                                "items": {
+                                    "$id": "#root/cep/extensions/items/events/items",
+                                    "title": "Items",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "com.my.event"
+                                    ],
+                                    "pattern": "^.*$"
+                                }
+                            },
+                            "params": {
+                                "$id": "#root/cep/extensions/items/params",
+                                "title": "Params",
+                                "type": "array",
+                                "default": [],
+                                "items": {
+                                    "$id": "#root/cep/extensions/items/params/items",
+                                    "title": "Items",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "--allow-file-access-from-files"
+                                    ],
+                                    "pattern": "^.*$"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
