@@ -66,7 +66,13 @@ function makeManifestXML(options) {
                             </CEFCommandLine>` : ''}
                     </Resources>
                     <Lifecycle>
-                        <AutoVisible>${ext.type === 'Custom' ? false : ext.autovisible ? ext.autovisible : true}</AutoVisible>
+                        <AutoVisible>${
+                            ext.type === 'Custom' && ext.autovisible === undefined
+                                ? false
+                                : ext.autovisible !== undefined
+                                    ? ext.autovisible
+                                    : true
+                        }</AutoVisible>
                         ${ext.events?.length ? 
                             `<StartOn>
                                 ${ext.events.map((event) => `<Event>${event}</Event>`).join('\n')}
