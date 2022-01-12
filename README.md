@@ -1,19 +1,22 @@
 # cepgen
 
+## What does it do?
+`cepgen` generates a `manifest.xml` in a `CSXS` folder, based on the `cep` settings in your `package.json`. Setting the `--debug` flag will generate a `.debug` file in the root directory. Or in the relative folder specified by `--dest`.
+
 ## Usage
 One-off with `npx`:
 ```
-npx klustre/cepgen [--debug][--dest]
+npx klustre/cepgen [--debug][--dest][--init]
 ```
 Installed globally:
 ```
 npm i klustre/cepgen --global
-cepgen [--debug][--dest]
+cepgen [--debug][--dest][--init]
 ```
 Installed locally:
 ```
 npm i klustre/cepgen [--save-dev | --save]
-npx cepgen [--debug][--dest]
+npx cepgen [--debug][--dest][--init]
 ```
 As `npm` script:
 ```
@@ -34,12 +37,11 @@ Generates a `.debug` file in the root directory. The ports are read from the `ce
 Changes the destination folder. Path should be relative to the current working directory.
 
 ### `--init`
-Adds an example `cep` config to `package.json`. Note that it will be overwritten the existing config.
+Adds an example `cep` config to `package.json`. Note that it will overwrite the existing `cep` config.
 
-## What does it do?
-The script generates a `manifest.xml` in a `CSXS` folder, based on the `cep` settings in your `package.json`. Setting the `--debug` flag will generate a `.debug` file in the root directory. Or in the relative folder specified by `--dest`.
 
-It expects a `cep` object in your `package.json` with the following structure:
+## Config
+`cepgen` expects a `cep` object in your `package.json` with the following structure:
 
 ```jsonc
 "cep": {
