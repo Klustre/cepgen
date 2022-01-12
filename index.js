@@ -11,19 +11,19 @@ const cwd = process.cwd()
 let dest = cwd
 
 if (argv.help) {
-  console.log(
-  `
-  ${description}
-
-  Usage
-  $ cepgen [options]
-
-  Options
+    console.log(
+        `
+    ${description}
+  
+    Usage
+    $ cepgen [options]
+  
+    Options
     --init         Adds config to package.json
-  --debug        Generates .debug file
-  --dest <path>  Relative path to destination
-  `)
-  process.exit(0)
+    --debug        Generates .debug file
+    --dest <path>  Relative path to destination
+    `)
+    process.exit(0)
 }
 
 if (argv.init) {
@@ -63,13 +63,18 @@ try {
         const json = JSON.parse(pkg)
         validate(json, argv.debug)
         const settings = json.cep
-        const xml = makeManifestXML(settings)
+        const pkgVersion = json.version
+        const xml = makeManifestXML({
+            ...settings,
+            pkgVersion
+        })
         fs.outputFileSync(`${dest}/CSXS/manifest.xml`, format(xml))
-        console.log(`Manifest written to\n  ${dest}/CSXS/manifest.xml`)
+        const rel = path.relative(cwd, dest)
+        console.log(`Manifest written to .${rel}/CSXS/manifest.xml`)
         if (argv.debug) {
             const xml = makeDebugXML(settings.extensions)
             fs.outputFileSync(`${dest}/.debug`, format(xml))
-            console.log(`Debug file written to\n  ${dest}/.debug`)
+            console.log(`Debug file written to .${rel}/.debug`)
         }
         process.exit(0)
     }

@@ -22,7 +22,13 @@ function makeManifestXML(options) {
         version,
         extensions,
         hosts,
+        pkgVersion,
     } = options
+
+    if (bundle.version === undefined && pkgVersion === undefined) {
+        console.log('Missing `version` in `package.json` or `cep.bundle`')
+        process.exit(-1)
+    }
 
     return (
     `<?xml version="1.0" encoding="UTF-8"?>
@@ -30,11 +36,11 @@ function makeManifestXML(options) {
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         ExtensionBundleId="${bundle.id}"
         ExtensionBundleName="${bundle.name}"
-        ExtensionBundleVersion="${bundle.version}"
+        ExtensionBundleVersion="${bundle.version || pkgVersion}"
         Version="${version}"
         >
         <ExtensionList>
-            ${extensions.map((ext) => `<Extension Id="${ext.id}" Version="${ext.version}" />`).join('\n')}
+            ${extensions.map((ext) => `<Extension Id="${ext.id}" Version="${ext.version || bundle.version || pkgVersion}" />`).join('\n')}
         </ExtensionList>
         <ExecutionEnvironment>
             <HostList>
@@ -54,14 +60,14 @@ function makeManifestXML(options) {
                     <Resources>
                         <MainPath>${ext.main}</MainPath>
                         ${ext.script ? `<ScriptPath>${ext.script}</ScriptPath>` : ''}
-                        ${ext.params.length ? 
+                        ${ext.params?.length ? 
                             `<CEFCommandLine>
                                 ${ext.params.map((param) => `<Parameter>${param}</Parameter>`).join('\n')}
                             </CEFCommandLine>` : ''}
                     </Resources>
                     <Lifecycle>
-                        <AutoVisible>${ext.type === 'Custom' ? false : true}</AutoVisible>
-                        ${ext.events.length ? 
+                        <AutoVisible>${ext.type === 'Custom' ? false : ext.autovisible ? ext.autovisible : true}</AutoVisible>
+                        ${ext.events?.length ? 
                             `<StartOn>
                                 ${ext.events.map((event) => `<Event>${event}</Event>`).join('\n')}
                             </StartOn>` : ''}
@@ -77,7 +83,7 @@ function makeManifestXML(options) {
                                 </${capitalise(geo)}>`
                             }).join('\n')}
                         </Geometry>
-                        ${Object.keys(ext.icons).length ? 
+                        ${ext.icons && Object.keys(ext.icons).length ? 
                         `<Icons>
                             ${Object.keys(ext.icons).map((icon) => {
 								return `<Icon Type="${transform(icon)}">${ext.icons[icon]}</Icon>`

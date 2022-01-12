@@ -39,7 +39,7 @@ Adds an example `cep` config to `package.json`. Note that it will be overwritten
 ## What does it do?
 The script generates a `manifest.xml` in a `CSXS` folder, based on the `cep` settings in your `package.json`. Setting the `--debug` flag will generate a `.debug` file in the root directory. Or in the relative folder specified by `--dest`.
 
-It expects that you have a `cep` object in your `package.json` with the following structure:
+It expects a `cep` object in your `package.json` with the following structure:
 
 ```jsonc
 "cep": {
@@ -47,19 +47,20 @@ It expects that you have a `cep` object in your `package.json` with the followin
     "bundle": {
         "name": "My Bundle",
         "id": "com.mycompany",
-        "version": "1.0.0"
+        "version": "1.0.0" // optional, uses package version when omitted
     },
     "hosts": {
         "AEFT": "16.0"
     },
     "extensions": [
         {
-            "menu": "My Panel",
+            "menu": "My Panel", // optional
             "type": "Panel", // Panel | ModalDialog | Custom | Modeless
-            "version": "1.0.0",
+            "version": "1.0.0", // optional, uses bundle version when omitted
             "main": "./index.html",
             "script": "./script.jsx", // optional
             "id": "com.mycompany.panel",
+            "autovisible": true, // optional
             "debug": { // required when `--debug` is set
                 "AEFT": 3001
             },
