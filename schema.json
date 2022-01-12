@@ -258,8 +258,7 @@
                         "required": [
                             "type",
                             "main",
-                            "id",
-                            "geometry"
+                            "id"
                         ],
                         "anyOf": [
                             {

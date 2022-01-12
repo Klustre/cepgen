@@ -1,6 +1,6 @@
 {
 	"name": "cepgen",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Generate a CEP manifest and debug file",
 	"main": "index.js",
 	"scripts": {

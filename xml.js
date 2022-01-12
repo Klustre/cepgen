@@ -17,7 +17,7 @@ function makeDebugXML(extensions) {
 }
 
 function makeManifestXML(options) {
-    const {
+    let {
         bundle,
         version,
         extensions,
@@ -26,10 +26,36 @@ function makeManifestXML(options) {
     } = options
 
     if (bundle.version === undefined && pkgVersion === undefined) {
-        console.log('Missing `version` in `package.json` or `cep.bundle`')
+        console.log('Requires `version` in `package.json` or `cep.bundle`')
         process.exit(-1)
     }
 
+    extensions = extensions.map((ext) => {
+        if (ext.type === 'Custom' && !ext.geometry) {
+            return {
+                ...ext,
+                geometry: {
+                    size: {
+                        width: 1,
+                        height: 1,
+                    }
+                }
+            }
+        }
+        return ext
+    })
+
+    const geoMissing = extensions.map((ext) => {
+        if (ext.type !== 'Custom' && !ext.geometry) {
+            return `Requires \`geometry\` in extension \`${ext.id}\``
+        }
+    }).filter((msg) => msg)
+
+    if (geoMissing.length) {
+        geoMissing.forEach((error) => console.log(error))
+        process.exit(-1)
+    }
+    
     return (
     `<?xml version="1.0" encoding="UTF-8"?>
     <ExtensionManifest 

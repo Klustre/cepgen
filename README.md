@@ -64,7 +64,7 @@ It expects a `cep` object in your `package.json` with the following structure:
             "debug": { // required when `--debug` is set
                 "AEFT": 3001
             },
-            "geometry": {
+            "geometry": { // optional, when type is `Custom`
                 "size": {
                     "width": 200,
                     "height": 100
