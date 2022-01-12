@@ -3,20 +3,12 @@
 const { makeDebugXML, makeManifestXML } = require('./xml')
 const { validate, format } = require('./utils')
 const { description, version } = require('./package.json')
+const example = require('./example.json')
 const argv = require('minimist')(process.argv.slice(2))
 const fs = require('fs-extra')
 const path = require('path')
 const cwd = process.cwd()
 let dest = cwd
-
-if (argv.dest) {
-    if (typeof argv.dest !== 'string' || argv.dest === '/') {
-        console.log('"dest" is not of type string')
-        process.exit(-1)
-    } else {
-        dest = path.resolve(cwd, argv.dest)
-    }
-}
 
 if (argv.help) {
   console.log(
@@ -27,10 +19,34 @@ if (argv.help) {
   $ cepgen [options]
 
   Options
+    --init         Adds config to package.json
   --debug        Generates .debug file
   --dest <path>  Relative path to destination
   `)
   process.exit(0)
+}
+
+if (argv.init) {
+    try {
+        const pkgPath = `${cwd}/package.json`
+        const exists = fs.existsSync(pkgPath)
+        const pkg = exists ? fs.readJSONSync(pkgPath) : {}
+        pkg.cep = example
+        fs.outputJSONSync(pkgPath, pkg, { spaces: '\t' })
+        process.exit(0)
+    } catch (error) {
+        console.log(error)
+        process.exit(-1)
+    }
+}
+
+if (argv.dest) {
+    if (typeof argv.dest !== 'string' || argv.dest === '/') {
+        console.log('"dest" is not of type string')
+        process.exit(-1)
+    } else {
+        dest = path.resolve(cwd, argv.dest)
+    }
 }
 
 if (argv.v) {

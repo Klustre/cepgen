@@ -33,6 +33,9 @@ Generates a `.debug` file in the root directory. The ports are read from the `ce
 ### `--dest <path>`
 Changes the destination folder. Path should be relative to the current working directory.
 
+### `--init`
+Adds an example `cep` config to `package.json`. Note that it will be overwritten the existing config.
+
 ## What does it do?
 The script generates a `manifest.xml` in a `CSXS` folder, based on the `cep` settings in your `package.json`. Setting the `--debug` flag will generate a `.debug` file in the root directory. Or in the relative folder specified by `--dest`.
 
